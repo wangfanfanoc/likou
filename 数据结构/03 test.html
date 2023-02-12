@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var isValid = function (s) {
+        let stack = new Array()
+        let string
+        for (let i = 0; i < s.length; i++) {
+            if (s[i] == '(' || s[i] == '[') {
+                stack.push(s[i])
+
+            }
+            if (s[i] == ')') {
+                if (stack.length == 0)
+                    return false
+                string = stack.pop()
+                if (string != '(')
+                    return false
+            }
+
+            if (s[i] == ']') {
+                if (stack.length == 0)
+                    return false
+                string = stack.pop()
+                if (string != '[')
+                    return false
+
+            }
+
+        }
+        return true
+    }
+
+    console.log(isValid('()()}{')); 
+</script>
+
+</html>

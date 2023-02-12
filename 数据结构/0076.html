@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var minWindow = function (s, t) {
+        var need = {}, missing = t.length, i, j, I = 0, J = 0, c, l;
+        for (i = 0, l = t.length; i < l; i++) {
+            c = t[i];
+            need[c] = need[c] === undefined ? 1 : need[c] + 1;
+        }
+        for (i = 0, j = 0, l = s.length; j < l; j++) {
+            c = s[j];
+            missing -= need[c] > 0;
+            need[c] = need[c] === undefined ? -1 : need[c] - 1;
+            if (missing === 0) {
+                while (i < j && need[s[i]] < 0) {
+                    need[s[i]]++;
+                    i++;
+                }
+                if (J === 0 || j - i < J - I) {
+                    J = j + 1;
+                    I = i;
+                }
+            }
+        }
+        return s.substring(I, J);
+    };
+</script>
+
+</html>

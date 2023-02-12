@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+
+    let c = 3
+    function a() {
+        this.name = ''
+        this.age = ''
+        this.b = function () {
+            console.log(2);
+
+        }
+
+        this.a = function () {  // 一定要有this
+            console.log(1);
+            console.log(c);
+            this.b()           //  一定要有this  不能通过定义域链找
+            b()                //  在定义域链中才可以b()
+            function b() {
+                console.log(5);
+            }
+        }
+        const aa = []
+    }
+
+
+    let wang = new a()
+    console.log(wang);
+    wang.a()
+
+    // var removeDuplicates = function (nums) {
+    //     var arr = new Set(nums)
+    //     nums = Array.from(arr)
+    //     return nums.length
+    // };
+
+    // var removeDuplicates = function (nums) {
+    //     let set = new Set(nums);
+    //     let arr = [...set];
+    //     for (let i = 0; i < arr.length; i++) {
+    //         nums[i] = arr[i];
+    //     }
+    //     return arr.length;
+    // };
+
+
+    // console.log(removeDuplicates([1, 1, 2]));
+</script>
