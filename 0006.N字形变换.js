@@ -3,7 +3,7 @@
  * @param {number} numRows
  * @return {string}
  */
-//去尾 找周期，取模运算
+//找周期，取模运算
 var convert = function (s, numRows) {
   if (numRows == 1)  //考虑为1的情况
     return s
