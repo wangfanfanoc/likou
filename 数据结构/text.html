@@ -1,61 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=375" />
     <title>Document</title>
-</head>
-
-<body>
-
-</body>
-
+    <script src="./index.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .box {
+        width: 10rem;
+        height: 4rem;
+        background-color: antiquewhite;
+        font-size: 0.53rem; /* 20px*/
+      }
+    </style>
+    <script>
+      function setRootRem() {
+        const root = document.documentElement;
+        /** 以iPhone6为例：布局视口为375px，我们把它分成10份，则1rem = 37.5px，
+         * 这时UI给定一个元素的宽为375px（设备独立像素），
+         * 我们只需要将它设置为375 / 37.5 = 10rem。
+         */
+        const scale = root.clientWidth / 10;
+        root.style.fontSize = scale + "px";
+      }
+      setRootRem();
+      window.addEventListener("resize", setRootRem);
+    </script>
+  </head>
+  <body>
+    <div class="box">eee</div>
+  </body>
 </html>
-<script>
-
-    let c = 3
-    function a() {
-        this.name = ''
-        this.age = ''
-        this.b = function () {
-            console.log(2);
-
-        }
-
-        this.a = function () {  // 一定要有this
-            console.log(1);
-            console.log(c);
-            this.b()           //  一定要有this  不能通过定义域链找
-            b()                //  在定义域链中才可以b()
-            function b() {
-                console.log(5);
-            }
-        }
-        const aa = []
-    }
-
-
-    let wang = new a()
-    console.log(wang);
-    wang.a()
-
-    // var removeDuplicates = function (nums) {
-    //     var arr = new Set(nums)
-    //     nums = Array.from(arr)
-    //     return nums.length
-    // };
-
-    // var removeDuplicates = function (nums) {
-    //     let set = new Set(nums);
-    //     let arr = [...set];
-    //     for (let i = 0; i < arr.length; i++) {
-    //         nums[i] = arr[i];
-    //     }
-    //     return arr.length;
-    // };
-
-
-    // console.log(removeDuplicates([1, 1, 2]));
-</script>

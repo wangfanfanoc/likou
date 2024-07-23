@@ -20,17 +20,17 @@ var climbStairs = function (n) {
   return memo[n];
 };
 
-
 function climbStairs(n) {
   if (n <= 2) {
     return n;
   }
-  let before_last = 1, last = 2;
-  for (let i = 2; i < n; i++) {          //节省空间
+  let before_last = 1,
+    last = 2;
+  for (let i = 2; i < n; i++) {
+    //节省空间
     let current = before_last + last;
     before_last = last;
     last = current;
   }
   return last;
 }
-

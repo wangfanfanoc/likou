@@ -41,23 +41,23 @@ void backtracking(参数) {
  每个节点分支的个数由for循环决定, 树的深度由递归决定
 */
 
+var combine = function (n, k) {
+  let arr = [];
+  let result = [];
+  dfs = (arr, n, k, start) => {
+    if (arr.length == k) {
+      //递归结束的条件
+      result.push([...arr]);
+      return;
+    }
+    for (let i = start; i <= n; i++) {
+      //for决定每个节点的分支数
+      arr.push(i);
+      dfs(arr, n, k, i + 1); //递归 决定每个子树的深度
+      arr.pop(); //递归完成后，回溯到当前一层,继续进行操作
+    }
+  };
 
-var combine = function(n, k) {
-  
-  let arr=[]
-  let result=[]
-  dfs=(arr,n,k,start)=>{
-   if(arr.length==k){           //递归结束的条件
-       result.push([...arr])
-       return 
-   }
-   for(let i= start;i<=n;i++){     //for决定每个节点的分支数
-       arr.push(i)
-       dfs(arr,n,k,i+1)            //递归 决定每个子树的深度
-       arr.pop()                   //递归完成后，回溯到当前一层,继续进行操作
-   }
-  //  return 
-  }
-  dfs(arr,n,k,1)
-  return result
+  dfs(arr, n, k, 1);
+  return result;
 };
